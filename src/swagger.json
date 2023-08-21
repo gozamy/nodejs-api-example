@@ -1,0 +1,722 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Sport Monks API for Football apps",
+    "description": "Shows sample end points for Sport Monks",
+    "license": {
+      "name": "MIT",
+      "url": "https://opensource.org/licenses/MIT"
+    }
+  },
+  "host": "localhost:5000",
+  "basePath": "",
+  "tags": "Api for sports monks football API",
+  "consumes": ["application/json"],
+  "produces": ["application/json"],
+  "docExpansion": "none",
+  "paths": {
+    "/commentaries/{id}": {
+      "get": {
+        "tags": ["Commentaries"],
+        "summary": "Get commentaries by id",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Failed. Squad not found."
+          },
+          "500": {
+            "description": "Error connecting (Server Error)"
+          }
+        }
+      }
+    },
+    "/fixtures/{id}/{includes}": {
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "description": "Get fixtures by fixture id",
+          "type": "string"
+        },
+        {
+          "in": "path",
+          "name": "includes",
+          "required": false,
+          "description": "localTeam, visitorTeam, substitutions, goals, cards, other, events, corners, lineup, bench, sidelined, comments, tvstations, highlights, round, stage, referee, venue, odds, inplayOdds, flatOdds, localCoach, visitorCoach, group,, trends, firstAssistant. secondAssistant, fourthOfficial, stats, shootout, league, stats, probability, valuebet"
+        }
+      ],
+      "get": {
+        "tags": ["Fixtures"],
+        "summary": "Fixtures by fixture id",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "description": ""
+          },
+          {
+            "in": "path",
+            "name": "includes",
+            "required": false,
+            "description": "localTeam, visitorTeam, substitutions, goals, cards, other, events, corners, lineup, bench, sidelined, comments, tvstations, highlights, round, stage, referee, venue, odds, inplayOdds, flatOdds, localCoach, visitorCoach, group,, trends, firstAssistant. secondAssistant, fourthOfficial, stats, shootout, league, stats, probability, valuebet"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Failed. Team or fixture range not found."
+          },
+          "500": {
+            "description": "Error connecting (Server Error)"
+          }
+        }
+      }
+    },
+    "/fixtures/date/{date}/{includes}": {
+      "parameters": [
+        {
+          "name": "date",
+          "in": "path",
+          "required": true,
+          "description": "Date of fixture",
+          "type": "string"
+        },
+        {
+          "in": "path",
+          "name": "includes",
+          "required": false,
+          "description": "localTeam, visitorTeam, substitutions, goals, cards, other, events, corners, lineup, bench, sidelined, comments, tvstations, highlights, round, stage, referee, venue, odds, inplayOdds, flatOdds, localCoach, visitorCoach, group,, trends, firstAssistant. secondAssistant, fourthOfficial, stats, shootout, league, stats, probability, valuebet"
+        }
+      ],
+      "get": {
+        "tags": ["Fixtures"],
+        "summary": "Fixtures by date",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "date",
+            "required": true,
+            "description": "2019-06-01"
+          },
+          {
+            "in": "path",
+            "name": "includes",
+            "required": false,
+            "description": "localTeam, visitorTeam, substitutions, goals, cards, other, events, corners, lineup, bench, sidelined, comments, tvstations, highlights, round, stage, referee, venue, odds, inplayOdds, flatOdds, localCoach, visitorCoach, group,, trends, firstAssistant. secondAssistant, fourthOfficial, stats, shootout, league, stats, probability, valuebet"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Failed. Team or fixture range not found."
+          },
+          "500": {
+            "description": "Error connecting (Server Error)"
+          }
+        }
+      }
+    },
+    "/fixtures/{startdate}/{enddate}/{includes}": {
+      "parameters": [
+        {
+          "name": "startdate",
+          "in": "path",
+          "required": true,
+          "description": "Start date",
+          "type": "string"
+        },
+        {
+          "name": "enddate",
+          "in": "path",
+          "required": true,
+          "description": "end date",
+          "type": "string"
+        },
+        {
+          "in": "path",
+          "name": "includes",
+          "required": false,
+          "description": "localTeam, visitorTeam, substitutions, goals, cards, other, events, corners, lineup, bench, sidelined, comments, tvstations, highlights, round, stage, referee, venue, odds, inplayOdds, flatOdds, localCoach, visitorCoach, group,, trends, firstAssistant. secondAssistant, fourthOfficial, stats, shootout, league, stats, probability, valuebet"
+        }
+      ],
+      "get": {
+        "tags": ["Fixtures"],
+        "summary": "Fixtures by date range",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "startdate",
+            "required": true,
+            "description": "2019-06-01"
+          },
+          {
+            "in": "path",
+            "name": "enddate",
+            "required": true,
+            "description": "2020-06-01"
+          },
+          {
+            "in": "path",
+            "name": "includes",
+            "required": false,
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Failed. Team or fixture range not found."
+          },
+          "500": {
+            "description": "Error connecting (Server Error)"
+          }
+        }
+      }
+    },
+    "/fixtures/{startdate}/{enddate}/{teamid}/{includes}": {
+      "parameters": [
+        {
+          "name": "startdate",
+          "in": "path",
+          "required": true,
+          "description": "Start date",
+          "type": "string"
+        },
+        {
+          "name": "enddate",
+          "in": "path",
+          "required": true,
+          "description": "End date",
+          "type": "string"
+        },
+        {
+          "name": "teamid",
+          "in": "path",
+          "required": true,
+          "description": "Team id",
+          "type": "string"
+        },
+        {
+          "in": "path",
+          "name": "includes",
+          "required": false,
+          "description": "localTeam, visitorTeam, substitutions, goals, cards, other, events, corners, lineup, bench, sidelined, comments, tvstations, highlights, round, stage, referee, venue, odds, inplayOdds, flatOdds, localCoach, visitorCoach, group,, trends, firstAssistant. secondAssistant, fourthOfficial, stats, shootout, league, stats, probability, valuebet"
+        }
+      ],
+      "get": {
+        "tags": ["Fixtures"],
+        "summary": "Start date of season - (Max 10 includes)",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "startdate",
+            "required": true,
+            "description": "2019-06-01"
+          },
+          {
+            "in": "path",
+            "name": "enddate",
+            "required": true,
+            "description": "2020-06-01"
+          },
+          {
+            "in": "path",
+            "name": "teamid",
+            "required": true,
+            "description": "13"
+          },
+          {
+            "in": "path",
+            "name": "includes",
+            "required": false,
+            "description": "localTeam, visitorTeam, substitutions, goals, cards, other, events, corners, lineup, bench, sidelined, comments, tvstations, highlights, round, stage, referee, venue, odds, inplayOdds, flatOdds, localCoach, visitorCoach, group,, trends, firstAssistant. secondAssistant, fourthOfficial, stats, shootout, league, stats, probability, valuebet"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Failed. Team or fixture range not found."
+          },
+          "500": {
+            "description": "Error connecting (Server Error)"
+          }
+        }
+      }
+    },
+    "/fixtures/{idlist}/{includes}": {
+      "parameters": [
+        {
+          "name": "idlist",
+          "in": "path",
+          "required": true,
+          "description": "List of fixture ids to search",
+          "type": "string"
+        },
+        {
+          "in": "path",
+          "name": "includes",
+          "required": false,
+          "description": "localTeam, visitorTeam, substitutions, goals, cards, other, events, corners, lineup, bench, sidelined, comments, tvstations, highlights, round, stage, referee, venue, odds, inplayOdds, flatOdds, localCoach, visitorCoach, group,, trends, firstAssistant. secondAssistant, fourthOfficial, stats, shootout, league, stats, probability, valuebet"
+        }
+      ],
+      "get": {
+        "tags": ["Fixtures"],
+        "summary": "Start date of season",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "idlist",
+            "required": true,
+            "description": "2019-06-01"
+          },
+          {
+            "in": "path",
+            "name": "includes",
+            "required": false,
+            "description": "localTeam, visitorTeam, substitutions, goals, cards, other, events, corners, lineup, bench, sidelined, comments, tvstations, highlights, round, stage, referee, venue, odds, inplayOdds, flatOdds, localCoach, visitorCoach, group,, trends, firstAssistant. secondAssistant, fourthOfficial, stats, shootout, league, stats, probability, valuebet"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Failed. Team or fixture range not found."
+          },
+          "500": {
+            "description": "Error connecting (Server Error)"
+          }
+        }
+      }
+    },
+    "/fixtures/updates/{includes}/{fixtureid}": {
+      "parameters": [
+        {
+          "name": "fixtureid",
+          "in": "path",
+          "required": true,
+          "description": "Fixture id to search",
+          "type": "string"
+        },
+        {
+          "in": "path",
+          "name": "includes",
+          "required": false,
+          "description": "localTeam, visitorTeam, substitutions, goals, cards, other, events, corners, lineup, bench, sidelined, comments, tvstations, highlights, round, stage, referee, venue, odds, inplayOdds, flatOdds, localCoach, visitorCoach, group, trends, firstAssistant. secondAssistant, fourthOfficial, stats, shootout, league, stats, probability, valuebet"
+        }
+      ],
+      "get": {
+        "tags": ["Fixtures"],
+        "summary": "Fixture updates",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "includes",
+            "required": true,
+            "description": "localTeam, visitorTeam, substitutions, goals, cards, other, events, corners, lineup, bench, sidelined, comments, tvstations, highlights, round, stage, referee, venue, odds, inplayOdds, flatOdds, localCoach, visitorCoach, group, trends, firstAssistant. secondAssistant, fourthOfficial, stats, shootout, league, stats, probability, valuebet"
+          },
+          {
+            "in": "path",
+            "name": "fixtureid",
+            "required": true,
+            "description": "16475286"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Failed. Team or fixture range not found."
+          },
+          "500": {
+            "description": "Error connecting (Server Error)"
+          }
+        }
+      }
+    },
+    "/leagues/{includes}": {
+      "get": {
+        "tags": ["Leagues"],
+        "summary": "Get all leagues",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "includes",
+            "required": false,
+            "description": "country,season,seasons"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Failed. Not found."
+          },
+          "500": {
+            "description": "Error connecting (Server Error)"
+          }
+        }
+      }
+    },
+    "/leagues/{id}/{includes}": {
+      "get": {
+        "tags": ["Leagues"],
+        "summary": "Get league by id",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "description": "Id of the league searching for (Fa Cup = 24)"
+          },
+          {
+            "in": "path",
+            "name": "includes",
+            "required": false,
+            "description": "country,season,seasons"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Failed. Not found."
+          },
+          "500": {
+            "description": "Error connecting (Server Error)"
+          }
+        }
+      }
+    },
+    "/leagues/{name}/{includes}": {
+      "get": {
+        "tags": ["Leagues"],
+        "summary": "Get league by name",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "team1id",
+            "required": true,
+            "description": "13"
+          },
+          {
+            "in": "path",
+            "name": "team2id",
+            "required": true,
+            "description": "19"
+          },
+          {
+            "in": "path",
+            "name": "includes",
+            "required": false,
+            "description": "country,season,seasons"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Failed. Not found."
+          },
+          "500": {
+            "description": "Error connecting (Server Error)"
+          }
+        }
+      }
+    },
+    "/squad/{seasonid}/{teamid}": {
+      "get": {
+        "tags": ["Squads"],
+        "summary": "Get Squad by season and team id",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "seasonid",
+            "required": true,
+            "description": "16036"
+          },
+          {
+            "in": "path",
+            "name": "teamid",
+            "required": true,
+            "description": "13"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Failed. Squad not found."
+          },
+          "500": {
+            "description": "Error connecting (Server Error)"
+          }
+        }
+      }
+    },
+    "/squadimages/{seasonid}/{teamid}": {
+      "get": {
+        "tags": ["Squads"],
+        "summary": "Get Squad images by season and team id",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "seasonid",
+            "required": true,
+            "description": "16036"
+          },
+          {
+            "in": "path",
+            "name": "teamid",
+            "required": true,
+            "description": "13"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Failed. Squad not found."
+          },
+          "500": {
+            "description": "Error connecting (Server Error)"
+          }
+        }
+      }
+    },
+    "/teams/{id}/{includes}": {
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "description": "Get Team By Id",
+          "type": "string"
+        },
+        {
+          "in": "path",
+          "name": "includes",
+          "required": false,
+          "description": "includes (3) country, squad, coach, transfers, sidelined, stats, venue, fifaranking, uefaranking, visitorFixtures, localFixtures, visitorResults, latest, upcoming, goalscorers, cardscorers, assistscorers, aggregatedGoalscorers, aggregatedCardscorers, aggregatedAssistscorers, league, activeSeasons, trophies"
+        }
+      ],
+      "get": {
+        "tags": ["Teams"],
+        "summary": "Get Team By Id",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Get Team By Id",
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "includes",
+            "required": false,
+            "description": "includes (3) country, squad, coach, transfers, sidelined, stats, venue, fifaranking, uefaranking, visitorFixtures, localFixtures, visitorResults, latest, upcoming, goalscorers, cardscorers, assistscorers, aggregatedGoalscorers, aggregatedCardscorers, aggregatedAssistscorers, league, activeSeasons, trophies"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Failed. Team or fixture range not found."
+          },
+          "500": {
+            "description": "Error connecting (Server Error)"
+          }
+        }
+      }
+    },
+    "/teams/season/{id}/{includes}": {
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "description": "Get Teams Played In Season",
+          "type": "string"
+        },
+        {
+          "in": "path",
+          "name": "includes",
+          "required": true,
+          "description": "includes (3) country, squad, coach, transfers, sidelined, stats, venue, fifaranking, uefaranking, visitorFixtures, localFixtures, visitorResults, latest, upcoming, goalscorers, cardscorers, assistscorers, aggregatedGoalscorers, aggregatedCardscorers, aggregatedAssistscorers, league, activeSeasons, trophies"
+        }
+      ],
+      "get": {
+        "tags": ["Teams"],
+        "summary": "Get Teams Played In Season",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "description": "Get Teams Played In Season (seasonId)"
+          },
+          {
+            "in": "path",
+            "name": "includes",
+            "required": true,
+            "description": "includes (3) country, squad, coach, transfers, sidelined, stats, venue, fifaranking, uefaranking, visitorFixtures, localFixtures, visitorResults, latest, upcoming, goalscorers, cardscorers, assistscorers, aggregatedGoalscorers, aggregatedCardscorers, aggregatedAssistscorers, league, activeSeasons, trophies"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Failed. not found."
+          },
+          "500": {
+            "description": "Error connecting (Server Error)"
+          }
+        }
+      }
+    },
+    "/teams/search/{searchTerm}/{includes}": {
+      "parameters": [
+        {
+          "name": "searchTerm",
+          "in": "path",
+          "required": true,
+          "description": "Search Team By Name",
+          "type": "string"
+        },
+        {
+          "in": "path",
+          "name": "includes",
+          "required": true,
+          "description": "includes (3) country, squad, coach, transfers, sidelined, stats, venue, fifaranking, uefaranking, visitorFixtures, localFixtures, visitorResults, latest, upcoming, goalscorers, cardscorers, assistscorers, aggregatedGoalscorers, aggregatedCardscorers, aggregatedAssistscorers, league, activeSeasons, trophies"
+        }
+      ],
+      "get": {
+        "tags": ["Teams"],
+        "summary": "Search Team By Name",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "searchTerm",
+            "required": true,
+            "description": "Search Team By Name"
+          },
+          {
+            "in": "path",
+            "name": "includes",
+            "required": true,
+            "description": "includes (3) country, squad, coach, transfers, sidelined, stats, venue, fifaranking, uefaranking, visitorFixtures, localFixtures, visitorResults, latest, upcoming, goalscorers, cardscorers, assistscorers, aggregatedGoalscorers, aggregatedCardscorers, aggregatedAssistscorers, league, activeSeasons, trophies"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Failed. not found."
+          },
+          "500": {
+            "description": "Error connecting (Server Error)"
+          }
+        }
+      }
+    },
+    "/teams/{id}/current": {
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "description": "Current Leagues By Team Id",
+          "type": "string"
+        }
+      ],
+      "get": {
+        "tags": ["Teams"],
+        "summary": "Current Leagues By Team Id",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "description": "Current Leagues By Team Id"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Failed. not found."
+          },
+          "500": {
+            "description": "Error connecting (Server Error)"
+          }
+        }
+      }
+    },
+    "/teams/{id}/history": {
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "description": "All Leagues By Team Id",
+          "type": "string"
+        }
+      ],
+      "get": {
+        "tags": ["Teams"],
+        "summary": "All Leagues By Team Id",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "description": "All Leagues By Team Id"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Failed. not found."
+          },
+          "500": {
+            "description": "Error connecting (Server Error)"
+          }
+        }
+      }
+    }
+  }
+}
